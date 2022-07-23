@@ -4,7 +4,7 @@ public class Product {
     private String name;
     private String type;
     private String description;
-    private Collection homeRoutine;
+    private ProductCollection homeRoutine;
 
     // EFFECTS: constructs a skincare product with name, description, and price
     public Product(String name, String type, String description) {
@@ -31,8 +31,8 @@ public class Product {
     // TODO: effects clause
     // REQUIRES: collection != null
     // MODIFIES: this
-    // EFFECTS: sets the product's home __ to the one passed as parameter
-    public void setHomeCollection(Collection collection) {
+    // EFFECTS: sets the product's home collection to the one passed as parameter
+    public void setHomeCollection(ProductCollection collection) {
         homeRoutine = collection;
         collection.addProduct(this);
     }

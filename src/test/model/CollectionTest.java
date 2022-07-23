@@ -12,11 +12,11 @@ public class CollectionTest {
     private Product serum;
     private Product moisturizer;
     private Product sunscreen;
-    private Collection testCollection;
+    private ProductCollection testCollection;
 
     @BeforeEach
     public void runBefore() {
-        testCollection = new Collection("User's Collection");
+        testCollection = new ProductCollection("User's Collection");
 
         cleanser = new Product("Fresh: Soy Face Cleanser", "Cleanser", "Hydrating");
         cleanser.setHomeCollection(testCollection);
