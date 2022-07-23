@@ -2,12 +2,12 @@ package model;
 
 public class Product {
     private String name;
-    private ProductType type;
+    private String type;
     private String description;
     private Collection homeRoutine;
 
     // EFFECTS: constructs a skincare product with name, description, and price
-    public Product(String name, ProductType type, String description) {
+    public Product(String name, String type, String description) {
         this.name = name;
         this.type = type;
         this.description = description;
@@ -19,7 +19,7 @@ public class Product {
     }
 
     // EFFECTS: returns product type
-    public ProductType getType() {
+    public String getType() {
         return type;
     }
 

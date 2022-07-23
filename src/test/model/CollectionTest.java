@@ -18,15 +18,15 @@ public class CollectionTest {
     public void runBefore() {
         testCollection = new Collection("User's Collection");
 
-        cleanser = new Product("Fresh: Soy Face Cleanser", ProductType.CLEANSER, "Hydrating");
+        cleanser = new Product("Fresh: Soy Face Cleanser", "Cleanser", "Hydrating");
         cleanser.setHomeCollection(testCollection);
-        toner = new Product("Laneige: Cream Skin Toner", ProductType.TONER, "Hypoallergenic");
+        toner = new Product("Laneige: Cream Skin Toner", "Toner", "Hypoallergenic");
         toner.setHomeCollection(testCollection);
-        serum = new Product("Sulwhasoo: Activating Serum", ProductType.SERUM, "Anti-Aging");
+        serum = new Product("Sulwhasoo: Activating Serum", "Serum", "Anti-Aging");
         serum.setHomeCollection(testCollection);
-        moisturizer = new Product("FAB: Ultra Repair Cream", ProductType.MOISTURIZER, "Hydrating");
+        moisturizer = new Product("FAB: Ultra Repair Cream", "Moisturizer", "Hydrating");
         moisturizer.setHomeCollection(testCollection);
-        sunscreen = new Product("Biore: Aqua Rich Sunscreen", ProductType.SUNSCREEN, "SPF 50");
+        sunscreen = new Product("Biore: Aqua Rich Sunscreen", "Sunscreen", "SPF 50");
     }
 
     @Test

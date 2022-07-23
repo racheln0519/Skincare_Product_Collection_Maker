@@ -15,20 +15,20 @@ public class ProductTest {
 
     @BeforeEach
     public void runBefore() {
-        cleanser = new Product("Fresh: Soy Face Cleanser", ProductType.CLEANSER, "Hydrating");
-        toner = new Product ("Laneige: Cream Skin Toner", ProductType.TONER, "Hypoallergenic");
-        serum = new Product ("Sulwhasoo: Activating Serum", ProductType.SERUM, "Anti-Aging");
-        moisturizer = new Product("FAB: Ultra Repair Cream", ProductType.MOISTURIZER, "Hydrating");
-        sunscreen = new Product("Biore: Aqua Rich Sunscreen", ProductType.SUNSCREEN, "SPF 50");
+        cleanser = new Product("Fresh: Soy Face Cleanser", "Cleanser", "Hydrating");
+        toner = new Product ("Laneige: Cream Skin Toner", "Toner", "Hypoallergenic");
+        serum = new Product ("Sulwhasoo: Activating Serum", "Serum", "Anti-Aging");
+        moisturizer = new Product("FAB: Ultra Repair Cream", "Moisturizer", "Hydrating");
+        sunscreen = new Product("Biore: Aqua Rich Sunscreen", "Sunscreen", "SPF 50");
     }
 
     @Test
     public void testGetTypes() {
-        assertEquals(ProductType.CLEANSER, cleanser.getType());
-        assertEquals(ProductType.TONER, toner.getType());
-        assertEquals(ProductType.SERUM, serum.getType());
-        assertEquals(ProductType.MOISTURIZER, moisturizer.getType());
-        assertEquals(ProductType.SUNSCREEN, sunscreen.getType());
+        assertEquals("Cleanser", cleanser.getType());
+        assertEquals("Toner", toner.getType());
+        assertEquals("Serum", serum.getType());
+        assertEquals("Moisturizer", moisturizer.getType());
+        assertEquals("Sunscreen", sunscreen.getType());
     }
 
     @Test

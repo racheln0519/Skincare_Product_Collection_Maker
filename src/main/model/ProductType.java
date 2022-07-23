@@ -1,5 +1,5 @@
-package model;
-
-public enum ProductType {
-    CLEANSER, TONER, SERUM, MOISTURIZER, SUNSCREEN
-}
+//package model;
+//
+//public enum ProductType {
+//    CLEANSER, TONER, SERUM, MOISTURIZER, SUNSCREEN
+//}
