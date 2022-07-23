@@ -1,32 +1,35 @@
 # My Personal Project
 
-## Application for Skincare Product Recommendations 
+## Skincare Product Sorter 
 
 
 **A brief description**
 
-As an individual with strong interests in skincare, I want to design an application where users can browse a selection 
-of skincare products, based on the input given by them. For instance, the application could ask for the user's 
-- specific skin type
-- type of skincare product that they are searching for
-- budget
-- preferred brands or brands that they do not like
+As an individual with strong interests in skincare, I want to design an application where users can input skincare
+products and have a sorter create a routine with the products in order. For instance, the application would ask for the 
+user's 
 
-After inputting the user's concerns, the project will display images of recommended products, along with a short 
-description of the product. The user may reject this product. In doing so, the second-best option/alternative will be 
-provided. The user may add this to their skincare routine (list of skincare products). This project interests me because
-I enjoy recommending skincare products to my peers, and I believe that it would be a convenient way for individuals to 
-create a skincare routine.
+- skincare products
+- time of day
+
+After inputting the user's information, the project will display a list of the skincare products in a specific order. 
+The order will provide the steps needed in doing their routine. For instance, if cleanser, toner, and moisturizer is 
+provided, the application would list the following order:
+
+- cleanser
+- toner
+- moisturizer
+
+The user is expected to follow the routine by using the products in the order specified above. This project interests me 
+because I enjoy recommending skincare products to my peers, and I believe that it would be a convenient way for 
+people to get step-by-step instructions for a routine based on the products they have.
 
 
 
 ## User Stories
 **Phase 0**
-- As a user, I want to be able to view a list of choices for skin type
-- As a user, I want to be able to input my skincare product budget
-- As a user, I want to be able to provide preferred brands as well as brands I don't like
-- As a user, I want to be able to reject a skincare product and be provided with an alternative
 - As a user, I want to be able to add a skincare product to my routine
 - As a user, I want to be able to remove a skincare product from my routine
-- As a user, I want to be able to view my skincare routine
+- As a user, I want to be able to sort my skincare products based on the order I need to use them in
+- As a user, I want to be able to view step-by-step instructions for my skincare routine
 
