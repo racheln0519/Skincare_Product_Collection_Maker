@@ -16,7 +16,7 @@ public class InputProduct {
     private boolean runProgram;
     private ProductCollection collection;
 
-    public void inputProduct(ProductCollection collection) {
+    public InputProduct(ProductCollection collection) {
         input = new Scanner(System.in);
         runProgram = true;
         this.collection = collection;
@@ -58,8 +58,9 @@ public class InputProduct {
 
 
     private void showInstructions() {
-        System.out.println("\nEnter '" + CREATE_COLLECTION_COMMAND + " to create a skincare collection.");
-        System.out.println("To quit at any time, enter " + QUIT_COMMAND + ".");
+        System.out.println("\nEnter '" + CREATE_COLLECTION_COMMAND + "' to create a skincare collection.");
+        System.out.println("\nEnter '" + VIEW_COLLECTION_COMMAND + "' to view your skincare collection.");
+        System.out.println("To quit at any time, enter '" + QUIT_COMMAND + "'.");
     }
 
     // MODIFIES: this
@@ -82,7 +83,7 @@ public class InputProduct {
             String description = input.nextLine();
             Product newProduct = new Product(name, type, description);
             collection.addProduct(newProduct);
-            System.out.println("Success! " + name + " has been added to " + namegiven + ".");
+            System.out.println("Success! " + newProduct + " has been added to " + namegiven + ".");
             showInstructions();
 
         } else if (operation.equals("remove")) {
@@ -107,9 +108,7 @@ public class InputProduct {
 
     private void printCollection() {
         System.out.println("Here is your skincare collection");
-        printCollection();
-
-        showInstructions();
+        System.out.println(collection);
     }
 
     // EFFECTS: stops taking in user input

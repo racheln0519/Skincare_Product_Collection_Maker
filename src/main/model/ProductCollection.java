@@ -1,6 +1,6 @@
 package model;
 
-import java.util.HashSet;
+import java.util.ArrayList;
 import java.util.List;
 
 public class ProductCollection {
@@ -11,7 +11,7 @@ public class ProductCollection {
     // EFFECTS: constructs an empty collection with the type categories being empty
     public ProductCollection(String name) {
         this.name = name;
-        collection = (List<Product>) new HashSet<Product>();
+        collection = new ArrayList<>();
     }
 
     // getters
