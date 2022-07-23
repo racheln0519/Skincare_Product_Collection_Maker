@@ -18,7 +18,7 @@ public class InputProduct {
     private Collection collection;
     private Person person;
 
-    public InputProduct(Collection collection) {
+    public InputProduct() {
         input = new Scanner(System.in);
         runProgram = true;
         // this.collection = collection;
@@ -66,11 +66,11 @@ public class InputProduct {
 
     // MODIFIES: this
     // EFFECTS: creates a collection with prompts and user inputs
-    private void handleAddToCollection(Product product) {
-        System.out.println("To create a collection, please enter a collection name:");
+    private void handleAddToCollection() {
+        System.out.println("To create a collection, please enter a name for your collection:");
 
-        String name = input.nextLine();
-        collection = new Collection(name);
+        String namegiven = input.nextLine();
+        collection = new Collection(namegiven);
         System.out.println("Please choose from the following: 'add' to add a product or 'remove' to remove a product.");
         String operation = input.next();
 
@@ -83,7 +83,7 @@ public class InputProduct {
             String pdescription = input.nextLine();
             Product newProduct = new Product(pname, ptype, pdescription);
             collection.add(newProduct);
-            System.out.println("Confirmed. " + p.getName() + " has added " + product + " to their collection.");
+            System.out.println("Success! " + pname + " has been added to " + namegiven + ".");
             showInstructions();
 
         } else if (operation.equals("remove")) {
@@ -94,22 +94,24 @@ public class InputProduct {
             System.out.println("Enter product description");
             String pdescription = input.nextLine();
             Product newProduct = new Product(pname, ptype, pdescription);
-            collection.remove(newProduct);
-            System.out.println("Confirmed. " + p.getName() + " has removed " + product + " from their collection.");
 
+            if (collection.contains(newProduct)) {
+                collection.remove(newProduct);
+                System.out.println("Success! " + pname + " has been removed from " + namegiven + ".");
+
+            } else {
+                System.out.println("This product is not in your collection.");
+            }
         }
-
         showInstructions();
     }
 
     private void printCollection() {
         System.out.println("Here is your skincare collection");
-        for (Product p: collection) {
-            System.out.println(p.getClass().getSimpleName());
-        }
+        printCollection();
+
         showInstructions();
     }
-
 
     // EFFECTS: stops taking in user input
     public void endProgram() {

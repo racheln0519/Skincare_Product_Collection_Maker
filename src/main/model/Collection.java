@@ -1,7 +1,6 @@
 package model;
 
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
 
 public class Collection {
@@ -51,7 +50,7 @@ public class Collection {
 
     // MODIFIES: this
     // EFFECTS: adds and sorts product into a skincare category
-    public void sortProduct(Product product) {
+    public void addProduct(Product product) {
         collection.add(product);
 //        ProductType type = product.getType();
 //

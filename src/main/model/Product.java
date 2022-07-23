@@ -34,7 +34,7 @@ public class Product {
     // EFFECTS: sets the product's home __ to the one passed as parameter
     public void setHomeCollection(Collection collection) {
         homeRoutine = collection;
-        collection.sortProduct(this);
+        collection.addProduct(this);
     }
 
 }
