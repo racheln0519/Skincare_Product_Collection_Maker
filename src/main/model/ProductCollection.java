@@ -42,7 +42,7 @@ public class ProductCollection {
     }
 
     // MODIFIES: this
-    // EFFECTS: adds a skincare product to collection
+    // EFFECTS: adds a skincare product to collection if user is not saving money; false otherwise
     public boolean addProduct(Product product) {
         if (!savemoney) {
             collection.add(product);

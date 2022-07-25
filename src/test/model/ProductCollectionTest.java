@@ -34,7 +34,7 @@ public class ProductCollectionTest {
     @Test
     public void testAddProductNotSavingMoney() {
         assertEquals(0, testCollection.collectionSize());
-        assertFalse(testCollection.savemoney());
+        assertEquals(false, testCollection.savemoney());
         testCollection.addProduct(cleanser);
         assertEquals(1, testCollection.collectionSize());
     }
@@ -42,8 +42,9 @@ public class ProductCollectionTest {
     @Test
     public void testAddProductSavingMoney() {
         assertEquals(0, testCollection.collectionSize());
-        assertTrue(testCollection.savemoney());
+        assertEquals(true, testCollection.savemoney());
         testCollection.addProduct(cleanser);
+        assertFalse(testCollection.addProduct(cleanser));
         assertEquals(0, testCollection.collectionSize());
     }
 
