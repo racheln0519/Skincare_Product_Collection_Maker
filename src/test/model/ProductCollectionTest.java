@@ -36,6 +36,7 @@ public class ProductCollectionTest {
         assertEquals(0, testCollection.collectionSize());
         assertEquals(false, testCollection.savemoney());
         testCollection.addProduct(cleanser);
+        assertTrue(testCollection.addProduct(cleanser));
         assertEquals(1, testCollection.collectionSize());
     }
 
