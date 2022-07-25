@@ -2,39 +2,17 @@ package model;
 
 public class Product {
     private String name;
-    private String type;
-    private String description;
     private ProductCollection homeRoutine;
 
-    // EFFECTS: constructs a skincare product with name, description, and price
-    public Product(String name, String type, String description) {
+    // EFFECTS: constructs a skincare product with given name
+    public Product(String name) {
         this.name = name;
-        this.type = type;
-        this.description = description;
     }
 
-    // EFFECTS: returns product name
+    // getters
     public String getName() {
         return name;
     }
 
-    // EFFECTS: returns product type
-    public String getType() {
-        return type;
-    }
-
-    // EFFECTS: returns product description
-    public String getDescription() {
-        return description;
-    }
-
-    // TODO: effects clause
-    // REQUIRES: collection != null
-    // MODIFIES: this
-    // EFFECTS: sets the product's home collection to the one passed as parameter
-    public void setHomeCollection(ProductCollection collection) {
-        homeRoutine = collection;
-        collection.addProduct(this);
-    }
 
 }

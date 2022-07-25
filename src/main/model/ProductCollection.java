@@ -8,7 +8,7 @@ public class ProductCollection {
     private List<Product> collection;
 
 
-    // EFFECTS: constructs an empty collection with the type categories being empty
+    // EFFECTS: constructs an empty collection with given name
     public ProductCollection(String name) {
         this.name = name;
         collection = new ArrayList<>();
@@ -19,22 +19,27 @@ public class ProductCollection {
         return name;
     }
 
+    public List<Product> getCollection() {
+        return collection;
+    }
+
     // MODIFIES: this
-    // EFFECTS: adds and sorts product into a skincare category
+    // EFFECTS: adds a skincare product to collection
     public void addProduct(Product product) {
         collection.add(product);
     }
 
-
     // MODIFIES: this
-    // EFFECTS: removes a product from a skincare category
+    // EFFECTS: removes a skincare product from collection
     public void removeProduct(Product product) {
         collection.remove(product);
     }
 
-
-    // EFFECTS: checks to see if the given product is contained in the lists of products
+    // EFFECTS: checks to see if the given product is contained in the collection
     public boolean inCollection(Product product) {
         return collection.contains(product);
     }
+
+
+
 }
