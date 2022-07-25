@@ -50,9 +50,23 @@ public class ProductCollectionTest {
     }
 
     @Test
+    public void testGetCollectionEmpty() {
+        assertEquals(0, testCollection.collectionSize());
+    }
+
+    @Test
+    public void testGetCollection() {
+        testCollection.addProduct(cleanser);
+        testCollection.addProduct(serum);
+        testCollection.getCollection();
+        assertEquals(2, testCollection.collectionSize());
+    }
+
+    @Test
     public void testInCollectionNotIn() {
         testCollection.addProduct(serum);
         testCollection.addProduct(toner);
+        testCollection.getCollection();
         assertFalse(testCollection.inCollection(sunscreen));
     }
 

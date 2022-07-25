@@ -40,10 +40,12 @@ public class ProductCollection {
         return collection.contains(product);
     }
 
+    // EFFECTS: returns true if collection is empty; false otherwise
     public boolean isEmpty() {
         return collection.isEmpty();
     }
 
+    // EFFECTS: produces the size of the collection
     public int collectionSize() {
         return collection.size();
     }
