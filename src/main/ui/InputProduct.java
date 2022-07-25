@@ -3,7 +3,6 @@ package ui;
 import model.Product;
 import model.ProductCollection;
 
-import java.util.Collection;
 import java.util.Scanner;
 
 public class InputProduct {
@@ -23,7 +22,7 @@ public class InputProduct {
     }
 
     public void handleInput() {
-        System.out.println("Hello! How can I help you?");
+        System.out.println("How can I help you?");
         showInstructions();
         String string;
 
@@ -40,7 +39,7 @@ public class InputProduct {
         if (string.length() > 0) {
             switch (string) {
                 case CREATE_COLLECTION_COMMAND:
-                    handleAddToCollection();
+                    handleCollection();
                     break;
                 case VIEW_COLLECTION_COMMAND:
                     printCollection();
@@ -56,7 +55,6 @@ public class InputProduct {
 
     }
 
-
     private void showInstructions() {
         System.out.println("\nEnter '" + CREATE_COLLECTION_COMMAND + "' to create a skincare collection.");
         System.out.println("\nEnter '" + VIEW_COLLECTION_COMMAND + "' to view your skincare collection.");
@@ -66,7 +64,7 @@ public class InputProduct {
     // MODIFIES: this
     // EFFECTS: creates a collection with prompts and user inputs
     @SuppressWarnings("methodlength")
-    private void handleAddToCollection() {
+    private void handleCollection() {
         System.out.println("To create a collection, please enter a name for your collection:");
 
         String namegiven = input.nextLine();
@@ -80,10 +78,11 @@ public class InputProduct {
             System.out.println("Enter product type");
             String type = input.nextLine();
             System.out.println("Enter product description");
-            String description = input.nextLine();
+            String description = input.next();
+            description += input.nextLine();
             Product newProduct = new Product(name, type, description);
             collection.addProduct(newProduct);
-            System.out.println("Success! " + newProduct + " has been added to " + namegiven + ".");
+            System.out.println("Success! " + newProduct.getName() + " has been added to " + collection.getName() + ".");
             showInstructions();
 
         } else if (operation.equals("remove")) {
@@ -93,16 +92,19 @@ public class InputProduct {
             String type = input.nextLine();
             System.out.println("Enter product description");
             String description = input.nextLine();
+            description += input.nextLine();
             Product newProduct = new Product(name, type, description);
 
             if (collection.inCollection(newProduct)) {
                 collection.removeProduct(newProduct);
-                System.out.println("Success! " + name + " has been removed from " + namegiven + ".");
+                System.out.println("Success! "
+                        + newProduct.getName() + " has been removed from " + collection.getName() + ".");
 
             } else {
-                System.out.println("This product is not in your collection.");
+                System.out.println("This product is not contained in " + collection.getName() + ".");
             }
         }
+        System.out.println("Sorry, this command is not recognized. Please try again.");
         showInstructions();
     }
 
