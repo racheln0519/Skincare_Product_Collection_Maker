@@ -43,9 +43,12 @@ public class ProductCollection {
 
     // MODIFIES: this
     // EFFECTS: adds a skincare product to collection
-    public void addProduct(Product product) {
+    public boolean addProduct(Product product) {
         if (!savemoney) {
             collection.add(product);
+            return true;
+        } else {
+            return false;
         }
     }
 

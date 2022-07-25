@@ -34,9 +34,9 @@ public class ProductCollectionTest {
     @Test
     public void testAddProduct() {
         assertEquals(0, testCollection.collectionSize());
+        assertFalse(testCollection.savemoney());
         testCollection.addProduct(cleanser);
-        testCollection.addProduct(toner);
-        assertEquals(2, testCollection.collectionSize());
+        assertEquals(1, testCollection.collectionSize());
     }
 
     @Test
