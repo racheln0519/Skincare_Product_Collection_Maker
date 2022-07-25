@@ -28,6 +28,7 @@ have tried in the past.
 **Phase 1**
 - As a user, I want to be able to create a collection of skincare products
 - As a user, I want to be able to name my collection
-- As a user, I want to be able to add skincare products to my collection
+- As a user, I want to be able to add skincare products to my collection if I am not saving money
+- As a user, I want to prevent myself from adding new skincare products if I am trying to save money
 - As a user, I want to be able to remove skincare products from my collection
 - As a user, I want to be able to view a list of all the skincare products in my collection
