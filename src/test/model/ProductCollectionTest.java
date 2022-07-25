@@ -97,6 +97,14 @@ public class ProductCollectionTest {
         assertEquals(3, testCollection.collectionSize());
     }
 
+    @Test
+    public void testSaveMoney() {
+        assertEquals(testCollection.savemoney(), false);
+        testCollection.savingMoney();
+        assertEquals(testCollection.savemoney(), true);
+        testCollection.notSavingMoney();
+        assertEquals(testCollection.savemoney(), false);
+    }
 
 }
 
