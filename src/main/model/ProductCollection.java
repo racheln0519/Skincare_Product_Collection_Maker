@@ -42,23 +42,29 @@ public class ProductCollection {
     }
 
     // MODIFIES: this
-    // EFFECTS: adds a skincare product to collection if user is not saving money; false otherwise
+    // EFFECTS: adds a skincare product to collection if product is not contained in the collection and if user is not
+    // saving money; false otherwise
     public boolean addProduct(Product product) {
         if (!savemoney) {
-            collection.add(product);
-            return true;
-        } else {
-            return false;
+            if (!collection.contains(product)) {
+                collection.add(product);
+                return true;
+            }
         }
+        return false;
     }
 
     // MODIFIES: this
-    // EFFECTS: removes a skincare product from collection
-    public void removeProduct(Product product) {
-        collection.remove(product);
+    // EFFECTS: removes a skincare product from collection if it is contained in the collection
+    public boolean removeProduct(Product product) {
+        if (collection.contains(product)) {
+            collection.remove(product);
+            return true;
+        }
+        return false;
     }
 
-    // EFFECTS: checks to see if the given product is contained in the collection
+    // EFFECTS: returns true if the given product is contained in the collection; false otherwise
     public boolean inCollection(Product product) {
         return collection.contains(product);
     }

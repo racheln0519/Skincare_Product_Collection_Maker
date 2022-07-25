@@ -3,6 +3,9 @@ package model;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.util.Arrays;
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 public class ProductCollectionTest {
@@ -32,25 +35,34 @@ public class ProductCollectionTest {
     }
 
     @Test
-    public void testAddProductNotSavingMoney() {
+    public void testAddProductNotSavingMoneyDoesNotContain() {
         assertEquals(0, testCollection.collectionSize());
-        assertEquals(false, testCollection.savemoney());
+        assertFalse(testCollection.savemoney());
         testCollection.addProduct(cleanser);
-        assertTrue(testCollection.addProduct(cleanser));
+        assertEquals(1, testCollection.collectionSize());
+    }
+
+    @Test
+    public void testAddProductNotSavingMoneyContained() {
+        testCollection.addProduct(cleanser);
+        assertEquals(1, testCollection.collectionSize());
+        assertFalse(testCollection.savemoney());
+        testCollection.addProduct(cleanser);
         assertEquals(1, testCollection.collectionSize());
     }
 
     @Test
     public void testAddProductSavingMoney() {
         assertEquals(0, testCollection.collectionSize());
-        assertEquals(true, testCollection.savemoney());
+        testCollection.savingMoney();
+        assertTrue(testCollection.savemoney());
         testCollection.addProduct(cleanser);
         assertFalse(testCollection.addProduct(cleanser));
         assertEquals(0, testCollection.collectionSize());
     }
 
     @Test
-    public void testRemoveProduct() {
+    public void testRemoveProductContained() {
         testCollection.addProduct(serum);
         testCollection.addProduct(moisturizer);
         testCollection.addProduct(sunscreen);
@@ -60,15 +72,29 @@ public class ProductCollectionTest {
     }
 
     @Test
+    public void testRemoveProductNotContained() {
+        testCollection.addProduct(serum);
+        testCollection.addProduct(moisturizer);
+        testCollection.addProduct(sunscreen);
+        assertEquals(3, testCollection.collectionSize());
+        testCollection.removeProduct(toner);
+        assertFalse(testCollection.removeProduct(toner));
+        assertEquals(3, testCollection.collectionSize());
+    }
+
+    @Test
     public void testGetCollectionEmpty() {
         assertEquals(0, testCollection.collectionSize());
     }
 
     @Test
     public void testGetCollection() {
+
+        List<Product> actual = Arrays.asList(cleanser, serum);
+
         testCollection.addProduct(cleanser);
         testCollection.addProduct(serum);
-        testCollection.getCollection();
+        assertEquals(actual, testCollection.getCollection());
         assertEquals(2, testCollection.collectionSize());
     }
 
@@ -76,7 +102,6 @@ public class ProductCollectionTest {
     public void testInCollectionNotIn() {
         testCollection.addProduct(serum);
         testCollection.addProduct(toner);
-        testCollection.getCollection();
         assertFalse(testCollection.inCollection(sunscreen));
     }
 
@@ -109,11 +134,11 @@ public class ProductCollectionTest {
 
     @Test
     public void testSaveMoney() {
-        assertEquals(testCollection.savemoney(), false);
+        assertFalse(testCollection.savemoney());
         testCollection.savingMoney();
-        assertEquals(testCollection.savemoney(), true);
+        assertTrue(testCollection.savemoney());
         testCollection.notSavingMoney();
-        assertEquals(testCollection.savemoney(), false);
+        assertFalse(testCollection.savemoney());
     }
 
 }
