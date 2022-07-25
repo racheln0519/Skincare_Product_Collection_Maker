@@ -40,6 +40,14 @@ public class ProductCollection {
         return collection.contains(product);
     }
 
+    public boolean isEmpty() {
+        return collection.isEmpty();
+    }
+
+    public int collectionSize() {
+        return collection.size();
+    }
+
 
 
 }

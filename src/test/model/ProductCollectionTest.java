@@ -26,15 +26,17 @@ public class ProductCollectionTest {
     }
 
     @Test
-    public void testGetName() {
+    public void testProductCollection() {
         assertEquals("User's Collection", testCollection.getName());
+        assertTrue(testCollection.isEmpty());
     }
 
     @Test
     public void testAddProduct() {
+        assertEquals(0, testCollection.collectionSize());
         testCollection.addProduct(cleanser);
         testCollection.addProduct(toner);
-        assertTrue(testCollection.inCollection(cleanser));
+        assertEquals(2, testCollection.collectionSize());
     }
 
     @Test
@@ -42,11 +44,44 @@ public class ProductCollectionTest {
         testCollection.addProduct(serum);
         testCollection.addProduct(moisturizer);
         testCollection.addProduct(sunscreen);
+        assertEquals(3, testCollection.collectionSize());
         testCollection.removeProduct(sunscreen);
+        assertEquals(2, testCollection.collectionSize());
+    }
+
+    @Test
+    public void testInCollectionNotIn() {
+        testCollection.addProduct(serum);
+        testCollection.addProduct(toner);
         assertFalse(testCollection.inCollection(sunscreen));
     }
 
+    @Test
+    public void testInCollection() {
+        testCollection.addProduct(cleanser);
+        testCollection.addProduct(toner);
+        testCollection.addProduct(moisturizer);
+        assertTrue(testCollection.inCollection(cleanser));
+    }
 
+    @Test
+    public void testIsEmptyNotEmpty() {
+        testCollection.addProduct(sunscreen);
+        assertFalse(testCollection.isEmpty());
+    }
+
+    @Test
+    public void testIsEmpty() {
+        assertTrue(testCollection.isEmpty());
+    }
+
+    @Test
+    public void testCollectionSize() {
+        testCollection.addProduct(cleanser);
+        testCollection.addProduct(moisturizer);
+        testCollection.addProduct(sunscreen);
+        assertEquals(3, testCollection.collectionSize());
+    }
 
 
 }

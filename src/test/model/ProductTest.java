@@ -23,7 +23,14 @@ public class ProductTest {
     }
 
     @Test
-    public void getNames() {
+    public void testProduct() {
+        assertEquals("Fresh: Soy Face Cleanser", cleanser.getName());
+        assertEquals("Laneige: Cream Skin Toner", toner.getName());
+        assertEquals("Sulwhasoo: Activating Serum", serum.getName());
+    }
+
+    @Test
+    public void testGetNames() {
         assertEquals("Fresh: Soy Face Cleanser", cleanser.getName());
         assertEquals("Laneige: Cream Skin Toner", toner.getName());
         assertEquals("Sulwhasoo: Activating Serum", serum.getName());
