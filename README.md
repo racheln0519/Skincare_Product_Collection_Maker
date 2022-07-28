@@ -1,6 +1,6 @@
 # My Personal Project
 
-## Skincare Product Sorter 
+## Skincare Product Collection Creator
 
 
 **A brief description**

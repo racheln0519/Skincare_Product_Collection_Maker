@@ -6,14 +6,14 @@ import java.util.List;
 public class ProductCollection {
     private String name;
     private List<Product> collection;
-    private boolean savemoney;
+    private boolean isSavingMoney;
 
 
     // EFFECTS: constructs an empty collection with given name
     public ProductCollection(String name) {
         this.name = name;
         collection = new ArrayList<>();
-        savemoney = false;
+        isSavingMoney = false;
     }
 
     // getters
@@ -26,26 +26,26 @@ public class ProductCollection {
     }
 
     public boolean savemoney() {
-        return savemoney;
+        return isSavingMoney;
     }
 
     // MODIFIES: this
     // EFFECTS: sets a field in this collection such that the user is saving money
     public void savingMoney() {
-        savemoney = true;
+        isSavingMoney = true;
     }
 
     // MODIFIES: this
     // EFFECTS: sets a field in this collection such that the user is not saving money
     public void notSavingMoney() {
-        savemoney = false;
+        isSavingMoney = false;
     }
 
     // MODIFIES: this
     // EFFECTS: adds a skincare product to collection if product is not contained in the collection and if user is not
     // saving money; false otherwise
     public boolean addProduct(Product product) {
-        if (!savemoney) {
+        if (!isSavingMoney) {
             if (!collection.contains(product)) {
                 collection.add(product);
                 return true;
