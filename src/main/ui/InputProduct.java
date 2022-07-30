@@ -2,8 +2,14 @@ package ui;
 
 import model.Product;
 import model.ProductCollection;
+import persistence.JsonReader;
+import persistence.JsonWriter;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.Scanner;
+
+// code referenced from WorkRoomApp in JsonSerializationDemo
 
 public class InputProduct {
 
@@ -11,21 +17,30 @@ public class InputProduct {
     private static final String SET_SAVE_MONEY_PREFERENCE_COMMAND = "save money";
     private static final String ADD_TO_COLLECTION_COMMAND = "add product";
     private static final String REMOVE_FROM_COLLECTION_COMMAND = "remove product";
+    private static final String SAVE_COLLECTION_COMMAND = "save collection";
+    private static final String LOAD_COLLECTION_COMMAND = "load collection";
     private static final String VIEW_COLLECTION_COMMAND = "view collection";
     private static final String QUIT_COMMAND = "quit";
 
+    private static final String JSON_STORE = "./data/product-collection.json";
     private Scanner input;
     private boolean runProgram;
     private ProductCollection myProductCollection;
+    private JsonWriter jsonWriter;
+    private JsonReader jsonReader;
 
+    // EFFECTS: constructs product collection and runs application
     public InputProduct(ProductCollection collection) {
         input = new Scanner(System.in);
         runProgram = true;
         this.myProductCollection = collection;
+        jsonWriter = new JsonWriter(JSON_STORE);
+        jsonReader = new JsonReader(JSON_STORE);
     }
 
     // EFFECTS: shows instructions at the beginning of the application
     public void handleInput() {
+        System.out.println("Welcome! Let's make changes to your skincare collection!");
         System.out.println("How can I help you?");
         showInstructions();
         String string;
@@ -55,6 +70,12 @@ public class InputProduct {
                 case REMOVE_FROM_COLLECTION_COMMAND:
                     removeFromCollection();
                     break;
+                case SAVE_COLLECTION_COMMAND:
+                    saveProductCollection();
+                    break;
+                case LOAD_COLLECTION_COMMAND:
+                    loadProductCollection();
+                    break;
                 case VIEW_COLLECTION_COMMAND:
                     printCollection();
                     break;
@@ -76,6 +97,8 @@ public class InputProduct {
                 + REMOVE_FROM_COLLECTION_COMMAND + "' to remove a product from skincare collection.");
         System.out.println("\nEnter '"
                 + SET_SAVE_MONEY_PREFERENCE_COMMAND + "' to set money saving preference.");
+        System.out.println("\nEnter '" + SAVE_COLLECTION_COMMAND + "' to save skincare collection to file.");
+        System.out.println("\nEnter '" + LOAD_COLLECTION_COMMAND + "' to load skincare collection from file.");
         System.out.println("\nEnter '" + VIEW_COLLECTION_COMMAND + "' to view your skincare collection.");
         System.out.println("To quit at any time, enter '" + QUIT_COMMAND + "'.");
     }
@@ -154,7 +177,31 @@ public class InputProduct {
     // EFFECTS: stops taking in user input
     public void endProgram() {
         System.out.println("Quitting...");
+        System.out.println("See you later!");
         input.close();
+    }
+
+    // EFFECTS: saves the product collection to file
+    private void saveProductCollection() {
+        try {
+            jsonWriter.open();
+            jsonWriter.write(myProductCollection);
+            jsonWriter.close();
+            System.out.println("Success! Saved " + myProductCollection.getName() + " to " + JSON_STORE);
+        } catch (FileNotFoundException e) {
+            System.out.println("Unable to write to file: " + JSON_STORE);
+        }
+    }
+
+    // MODIFIES: this
+    // EFFECTS: loads product collection from file
+    private void loadProductCollection() {
+        try {
+            myProductCollection = jsonReader.read();
+            System.out.println("Success! Loaded " + myProductCollection.getName() + " from " + JSON_STORE);
+        } catch (IOException e) {
+            System.out.println("Unable to read from file: " + JSON_STORE);
+        }
     }
 
 }

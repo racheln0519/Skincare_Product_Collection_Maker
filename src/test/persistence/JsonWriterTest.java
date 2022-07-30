@@ -10,6 +10,8 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.fail;
 
+// code based on JsonWriterTest from JsonSerializationDemo
+
 public class JsonWriterTest extends JsonTest {
 
     @Test
@@ -28,12 +30,12 @@ public class JsonWriterTest extends JsonTest {
     public void testWriterEmptyProductCollection() {
         try {
             ProductCollection pc = new ProductCollection("User's Collection");
-            JsonWriter writer = new JsonWriter("./data/testWriterEmptyProductCollection.json");
+            JsonWriter writer = new JsonWriter("./data/testWriterEmptyProductCollection.json.json");
             writer.open();
             writer.write(pc);
             writer.close();
 
-            JsonReader reader = new JsonReader("./data/testWriterEmptyProductCollection.json");
+            JsonReader reader = new JsonReader("./data/testWriterEmptyProductCollection.json.json");
             pc = reader.read();
             assertEquals("User's Collection", pc.getName());
             assertEquals(0, pc.collectionSize());
@@ -48,12 +50,12 @@ public class JsonWriterTest extends JsonTest {
             ProductCollection pc = new ProductCollection("User's Collection");
             pc.addProduct(new Product("Cleanser"));
             pc.addProduct(new Product("Toner"));
-            JsonWriter writer = new JsonWriter("./data/testWriterGeneralProductCollection.json");
+            JsonWriter writer = new JsonWriter("./data/testWriterGeneralProductCollection.json.json");
             writer.open();
             writer.write(pc);
             writer.close();
 
-            JsonReader reader = new JsonReader("./data/testWriterGeneralProductCollection.json");
+            JsonReader reader = new JsonReader("./data/testWriterGeneralProductCollection.json.json");
             pc = reader.read();
             assertEquals("User's Collection", pc.getName());
             List<Product> collection = pc.getCollection();
