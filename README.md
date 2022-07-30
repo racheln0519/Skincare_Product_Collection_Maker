@@ -22,13 +22,15 @@ have tried in the past.
 **Phase 0**
 - As a user, I want to be able to add a skincare product to my routine
 - As a user, I want to be able to remove a skincare product from my routine
-- As a user, I want to be able to sort my skincare products based on the order I need to use them in
 - As a user, I want to be able to view step-by-step instructions for my skincare routine
 
 **Phase 1**
-- As a user, I want to be able to create a collection of skincare products
-- As a user, I want to be able to name my collection
+- As a user, I want to be able to create a collection of skincare products and name it
 - As a user, I want to be able to add skincare products to my collection if I am not saving money
 - As a user, I want to prevent myself from adding new skincare products if I am trying to save money
 - As a user, I want to be able to remove skincare products from my collection
 - As a user, I want to be able to view a list of all the skincare products in my collection
+
+**Phase 2**
+- As a user, I want to be able to save my skincare collection
+- As a user, I want to be able to load my skincare collection from file
