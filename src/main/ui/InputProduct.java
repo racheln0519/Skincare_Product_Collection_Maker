@@ -103,7 +103,7 @@ public class InputProduct {
                     + newProduct.getName() + " has been added to " + myProductCollection.getName() + ".");
         } else {
             System.out.println("Sorry, can't add " + newProduct.getName()
-                    + " to " + myProductCollection.getCollection() + " because user is saving money");
+                    + " to " + myProductCollection.getName() + " because user is saving money");
         }
         showInstructions();
     }
