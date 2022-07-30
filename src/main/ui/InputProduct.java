@@ -9,7 +9,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Scanner;
 
-// code referenced from WorkRoomApp in JsonSerializationDemo
+// code referenced WorkRoomApp in JsonSerializationDemo
 
 public class InputProduct {
 
