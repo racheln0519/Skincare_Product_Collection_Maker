@@ -1,6 +1,9 @@
 package model;
 
-public class Product {
+import org.json.JSONObject;
+import persistence.Writable;
+
+public class Product implements Writable {
     private String name;
     private ProductCollection homeRoutine;
 
@@ -14,5 +17,11 @@ public class Product {
         return name;
     }
 
+    @Override
+    public JSONObject toJson() {
+        JSONObject json = new JSONObject();
+        json.put("name", name);
+        return json;
+    }
 
 }

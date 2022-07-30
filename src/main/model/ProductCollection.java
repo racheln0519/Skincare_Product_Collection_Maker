@@ -1,9 +1,13 @@
 package model;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+import persistence.Writable;
+
 import java.util.ArrayList;
 import java.util.List;
 
-public class ProductCollection {
+public class ProductCollection implements Writable {
     private String name;
     private List<Product> collection;
     private boolean isSavingMoney;
@@ -79,6 +83,21 @@ public class ProductCollection {
         return collection.size();
     }
 
+    @Override
+    public JSONObject toJson() {
+        JSONObject json = new JSONObject();
+        json.put("name", name);
+        json.put("collection", collectionToJson());
+        return json;
+    }
 
+    // EFFECTS: returns products in collection as a JSON array
+    private JSONArray collectionToJson() {
+        JSONArray jsonArray = new JSONArray();
 
+        for (Product product : collection) {
+            jsonArray.put(product.toJson());
+        }
+        return jsonArray;
+    }
 }
