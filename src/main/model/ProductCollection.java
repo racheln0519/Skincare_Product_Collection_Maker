@@ -7,6 +7,8 @@ import persistence.Writable;
 import java.util.ArrayList;
 import java.util.List;
 
+// ProductCollection class represents a collection with a given name that stores all the products created.
+// A money saving method is implemented and prevents users from adding products
 public class ProductCollection implements Writable {
     private String name;
     private List<Product> collection;
