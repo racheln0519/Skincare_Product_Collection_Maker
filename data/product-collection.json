@@ -1,7 +1,4 @@
 {
-    "name": "Rachel",
-    "collection": [
-        {"name": "Cleanser"},
-        {"name": "Toner"}
-    ]
+    "name": "User's Collection",
+    "collection": []
 }
