@@ -33,15 +33,13 @@ public class GUI extends JFrame {
 
     @SuppressWarnings("methodlength")
     public GUI() {
-//        JFrame frame = new JFrame("Skincare Product Collection Maker");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setTitle("Skincare Product Collection Maker");
         getContentPane().setBackground(new java.awt.Color(147, 201, 147));
 
         // Sets the location and size of the frame and makes it visible
-        setSize(400, 400);
+        setSize(400, 500);
         setLocationRelativeTo(null);
-//        ImageIcon image = new ImageIcon()
 
         setLayout(new GridLayout(3, 1));
 
@@ -86,7 +84,8 @@ public class GUI extends JFrame {
         pack();
         setVisible(true);
 
-
+        // MODIFIES: this
+        // EFFECTS: adds skincare product to the collection and produces an image
         addButton.addActionListener(e -> {
             String product = textField.getText();
             if (myProductCollection.savemoney() == false) {
@@ -101,6 +100,8 @@ public class GUI extends JFrame {
 //            success.setText("Sorry, you cant add products because you set your saving preference to 'save money'.");
         });
 
+        // MODIFIES: this
+        // EFFECTS: removes a skincare product from the collection and produces an image
         removeButton.addActionListener(e -> {
             listModel.remove(list.getSelectedIndex());
             list.setModel(listModel);
@@ -109,6 +110,8 @@ public class GUI extends JFrame {
 
         });
 
+        // MODIFIES: this
+        // EFFECTS: sets money saving preference to 'save money' or 'not saving money'
         savingPreferenceButton.addActionListener(e -> {
             if (textField.getText().equals("save money")) {
                 myProductCollection.savingMoney();
@@ -124,6 +127,8 @@ public class GUI extends JFrame {
             }
         });
 
+        // MODIFIES: this
+        // EFFECTS: loads product collection from file
         loadButton.addActionListener(e -> {
             BufferedReader br = null;
             try {
@@ -149,6 +154,7 @@ public class GUI extends JFrame {
             }
         });
 
+        // EFFECTS: saves the product collection to file
         saveButton.addActionListener(e -> {
             int val = list.getModel().getSize();
             PrintWriter writer = null;
@@ -169,6 +175,7 @@ public class GUI extends JFrame {
             }
         });
 
+        // EFFECTS: selects a product from the collection when the mouse clicks on it
         list.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {

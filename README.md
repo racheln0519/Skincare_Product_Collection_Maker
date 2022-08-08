@@ -34,3 +34,13 @@ have tried in the past.
 **Phase 2**
 - As a user, I want to be able to save my skincare collection
 - As a user, I want to be able to load my skincare collection from file
+
+## Instructions for Grader
+- You can add a skincare product to the collection by typing in a product name to the text field and pressing the 
+- "Add Product" button. An image of a skincare product with a plus sign will pop up afterwards.
+- You can remove a skincare product from the collection by selecting a product from the list with your mouse and 
+  pressing the "Remove Product" button. An image of a skincare product with a minus sign will pop up afterwards.
+- You can set saving preferences by entering 'save money' or 'not saving money' into the text field and then press
+  the "Set Saving Preference button"
+- You can save your skincare collection by pressing the "Save Collection" butto
+- You can load your skincare collection by pressing the "Load Collection" button
