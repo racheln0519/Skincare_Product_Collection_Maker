@@ -42,5 +42,27 @@ have tried in the past.
   pressing the "Remove Product" button. An image of a skincare product with a minus sign will pop up afterwards.
 - You can set saving preferences by entering 'save money' or 'not saving money' into the text field and then press
   the "Set Saving Preference button"
-- You can save your skincare collection by pressing the "Save Collection" butto
+- You can save your skincare collection by pressing the "Save Collection" button
 - You can load your skincare collection by pressing the "Load Collection" button
+
+## Phase 4: Task 2
+Quitting...
+See you later!
+Tue Aug 09 15:21:59 PDT 2022
+Added product: Cleanser.
+Tue Aug 09 15:22:01 PDT 2022
+Added product: Toner.
+Tue Aug 09 15:22:05 PDT 2022
+Added product: Serum.
+Tue Aug 09 15:22:09 PDT 2022
+Added product: Sunscreen.
+Tue Aug 09 15:22:14 PDT 2022
+Removed product: Serum
+Tue Aug 09 15:22:18 PDT 2022
+Saving preference set to 'save money
+Tue Aug 09 15:22:37 PDT 2022
+Saving preference set to 'not saving money
+Tue Aug 09 15:22:42 PDT 2022
+Added product: Serum.
+
+Process finished with exit code 0

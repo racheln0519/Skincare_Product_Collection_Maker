@@ -33,18 +33,21 @@ public class ProductCollection implements Writable {
 
     public boolean savemoney() {
         return isSavingMoney;
+
     }
 
     // MODIFIES: this
     // EFFECTS: sets a field in this collection such that the user is saving money
     public void savingMoney() {
         isSavingMoney = true;
+        EventLog.getInstance().logEvent(new Event("Saving preference set to 'save money"));
     }
 
     // MODIFIES: this
     // EFFECTS: sets a field in this collection such that the user is not saving money
     public void notSavingMoney() {
         isSavingMoney = false;
+        EventLog.getInstance().logEvent(new Event("Saving preference set to 'not saving money"));
     }
 
     // MODIFIES: this
@@ -54,9 +57,11 @@ public class ProductCollection implements Writable {
         if (!isSavingMoney) {
             if (!collection.contains(product)) {
                 collection.add(product);
+                EventLog.getInstance().logEvent(new Event("Added product: " + product.getName() + "."));
                 return true;
             }
         }
+        EventLog.getInstance().logEvent(new Event("Product could not be added."));
         return false;
     }
 
@@ -65,8 +70,10 @@ public class ProductCollection implements Writable {
     public boolean removeProduct(Product product) {
         if (collection.contains(product)) {
             collection.remove(product);
+            EventLog.getInstance().logEvent(new Event("Removed product: " + product.getName()));
             return true;
         }
+        EventLog.getInstance().logEvent(new Event("Product could not be removed."));
         return false;
     }
 

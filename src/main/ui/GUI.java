@@ -97,7 +97,7 @@ public class GUI extends JFrame {
                     success.setText("Success! " + product + " was added to the collection.");
                 }
             }
-//            success.setText("Sorry, you cant add products because you set your saving preference to 'save money'.");
+//            success.setText("Sorry, you can't add products because you set your saving preference to 'save money'.");
         });
 
         // MODIFIES: this
@@ -132,7 +132,7 @@ public class GUI extends JFrame {
         loadButton.addActionListener(e -> {
             BufferedReader br = null;
             try {
-                br = new BufferedReader(new FileReader("List.txt"));
+                br = new BufferedReader(new FileReader("./data/product-collection.json"));
                 int val = Integer.parseInt(br.readLine());
 
                 listModel.removeAllElements();
@@ -160,7 +160,7 @@ public class GUI extends JFrame {
             PrintWriter writer = null;
 
             try {
-                writer = new PrintWriter("List.txt");
+                writer = new PrintWriter("./data/product-collection.json");
                 writer.println(val);
 
                 for (int i = 0; i < val; i++) {

@@ -1,5 +1,7 @@
 package ui;
 
+import model.Event;
+import model.EventLog;
 import model.Product;
 import model.ProductCollection;
 import persistence.JsonReader;
@@ -178,6 +180,11 @@ public class InputProduct {
     public void endProgram() {
         System.out.println("Quitting...");
         System.out.println("See you later!");
+
+        for (Event e: EventLog.getInstance()) {
+            System.out.println(e.toString());
+        }
+
         input.close();
     }
 
