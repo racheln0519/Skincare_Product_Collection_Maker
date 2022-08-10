@@ -2,8 +2,6 @@ package ui;
 
 import model.ProductCollection;
 
-import java.io.FileNotFoundException;
-
 public class MakeChangesToProductCollection {
 
     private ProductCollection productCollection;

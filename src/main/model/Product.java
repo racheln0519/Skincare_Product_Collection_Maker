@@ -6,7 +6,6 @@ import persistence.Writable;
 // Product class represents a product with a given name
 public class Product implements Writable {
     private String name;
-    private ProductCollection homeRoutine;
 
     // EFFECTS: constructs a skincare product with given name
     public Product(String name) {

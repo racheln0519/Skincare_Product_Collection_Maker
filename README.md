@@ -66,3 +66,10 @@ Tue Aug 09 15:22:42 PDT 2022
 Added product: Serum.
 
 Process finished with exit code 0
+
+## Phase 4: Task 3
+- Rather than having the InputProduct class rely on both the Product and ProductCollection classes, it would be better
+  if it just relied on ProductCollection. Because the creation of a product only involves a name, items can be added
+  to the ProductCollection class without the use of the Product Class.
+- Create a MessagePrinter type that does all the printing for InputProduct
+- Make the JScrollPanel larger in the GUI class so that longer skincare product names can be entered and displayed
