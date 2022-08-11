@@ -4,13 +4,11 @@ import model.ProductCollection;
 import persistence.JsonReader;
 import persistence.JsonWriter;
 
-import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.ImageIcon;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.awt.image.BufferedImage;
 import java.io.*;
 
 
